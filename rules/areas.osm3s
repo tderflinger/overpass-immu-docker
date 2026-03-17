@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm-script timeout="86400" element-limit="4294967296">
+
+<union>
+  <query type="relation">
+    <has-kv k="type" v="multipolygon"/>
+    <has-kv k="name"/>
+  </query>
+  <query type="relation">
+    <has-kv k="type" v="boundary"/>
+    <has-kv k="name"/>
+  </query>
+  <query type="relation">
+    <has-kv k="admin_level"/>
+    <has-kv k="name"/>
+  </query>
+  <query type="relation">
+    <has-kv k="postal_code"/>
+  </query>
+  <query type="relation">
+    <has-kv k="addr:postcode"/>
+  </query>
+</union>
+<foreach into="pivot">
+  <union>
+    <recurse type="relation-way" from="pivot"/>
+    <recurse type="way-node"/>
+  </union>
+  <make-area pivot="pivot" return-area="no"/>
+</foreach>
+
+</osm-script>

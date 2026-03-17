@@ -1,0 +1,5 @@
+db/
+*.pbf
+*.bz2
+monaco.json
+query.txt

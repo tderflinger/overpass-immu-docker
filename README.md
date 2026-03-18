@@ -8,27 +8,27 @@ Overpass CLI can query. Run Overpass queries against the data locally without
 relying on any public Overpass API server.
 
 The main idea is to have the OSM data linked via Docker volumes to the Overpass application.
-The docker container should be immutable (that is where the name comes from).
+The docker container should be immutable (that is where the name `overpass-immu-docker` comes from).
 
 For simplicity, there is no data update mechanism included.
 
-## Run
+## Pipeline Run
 
-Interactive bash:
+Run the shell script:
 
-docker run --rm -it -v ./:/opt/op overpass-immu-docker /bin/bash
+```bash
+./run-loader.sh <country> <region>
+```
 
-Run Osmium:
+This script gets the .pdf file from Geofabrik and then runs the
+whole pipeline to first convert it to a .bz2 file and then change it to
+the Overpass API own database format.
+The `db` folder that is linked via Docker volumes to the local `db` folder contains after
+a successful run the database files in the format Overpass API can use for subsequent queries.
 
-docker run --rm -v ./:/opt/op overpass-immu-docker  /usr/bin/osmium cat /opt/op/monaco-latest.osm.pbf -o /opt/op/monaco.osm.bz2
+## Build Docker Container
 
-docker run --rm -v ./:/opt/op overpass-immu-docker  /usr/bin/bzip2 --test /opt/op/monaco.osm.bz2
-
-docker run --rm -v ./:/opt/op overpass-immu-docker sh -c "/usr/bin/bunzip2 < /opt/op/monaco.osm.bz2 | /opt/op/binaries/update_database --db-dir=/opt/op/db --meta=no"
-
-docker run --rm -it -v ./:/opt/op overpass-immu-docker sh -c "/opt/op/binaries/osm3s_query --db-dir=/opt/op/db --progress --rules </opt/op/rules/areas.osm3s"
-
-docker run --rm -it -v ./:/opt/op overpass-immu-docker  /opt/op/binaries/osm3s_query --db-dir=/opt/op/db
+docker build -t overpass-immu-docker .
 
 ## References
 

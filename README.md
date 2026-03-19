@@ -1,16 +1,23 @@
 # overpass-immu-docker
 
 This is a specialized Docker container for querying OSM using Overpass.
-The use case is querying the OSM data with Overpass locally. 
+This project enables local querying of OpenStreetMap (OSM) data using the Overpass API, eliminating the need to rely on public Overpass API servers.
 
-Download the data you want to query as `.pbf` files and convert them to the database structure the
-Overpass CLI can query. Run Overpass queries against the data locally without
-relying on any public Overpass API server.
+OSM data is obtained as `.pbf` files and converted into the Overpass database format, after which queries can be executed entirely on the local machine.
 
-The main idea is to have the OSM data linked via Docker volumes to the Overpass application.
-The docker container should be immutable (that is where the name `overpass-immu-docker` comes from).
+OSM data and database files are managed on the host filesystem and exposed to the container via Docker volumes, keeping the container itself stateless and immutable — the origin of the name `overpass-immu-docker`.
 
-For simplicity, there is no data update mechanism included.
+Note: this project does not include an OSM data update mechanism. For use cases requiring continuous data updates, an alternative solution is recommended.
+
+## Architecture
+
+No database files are stored within the Docker container. Instead, all OSM data and Overpass database files reside on the host filesystem and are made available to the container via Docker volumes.
+
+All tooling required for data conversion and querying is bundled within the container, so no additional software needs to be installed on the host system.
+
+This container does not include an OSM data update mechanism. For use cases requiring continuous updates, a purpose-built solution such as an Overpass API server with replication support is recommended.
+
+The primary use case is executing local Overpass queries against OSM data, without depending on public Overpass API servers.
 
 ## Pipeline Run
 
@@ -20,11 +27,9 @@ Run the shell script:
 ./run-loader.sh <country> <region>
 ```
 
-This script gets the .pdf file from Geofabrik and then runs the
-whole pipeline to first convert it to a .bz2 file and then change it to
-the Overpass API own database format.
-The `db` folder that is linked via Docker volumes to the local `db` folder contains after
-a successful run the database files in the format Overpass API can use for subsequent queries.
+The `<country>` and `<region>` parameters correspond to the region identifiers used on the Geofabrik download site.
+
+The script downloads the `.pbf` file from Geofabrik and executes the full ingestion pipeline: converting the `.pbf` to a `.bz2` file and then loading it into the Overpass API database format. Upon successful completion, the `db` folder — mounted via Docker volumes — will contain the database files ready for Overpass queries.
 
 ## Run Query
 
@@ -43,7 +48,7 @@ with Overpass.
 
 ```mermaid
 flowchart TD
-    A[Fetch PBF File]
+    A[Fetch PBF]
     A --> B[Convert PBF to BZ2]
     B --> C[Load BZ2 into Overpass Database]
     C --> D[Add Area Rules]

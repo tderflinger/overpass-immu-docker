@@ -1,0 +1,7 @@
+flowchart TD
+    A[Fetch PBF File]
+    A --> B[Convert PBF to BZ2]
+    B --> C[Load BZ2 into Overpass Database]
+    C --> D[Add Area Rules]
+    D --> E[Run Queries Locally]
+    

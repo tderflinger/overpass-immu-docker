@@ -26,9 +26,37 @@ the Overpass API own database format.
 The `db` folder that is linked via Docker volumes to the local `db` folder contains after
 a successful run the database files in the format Overpass API can use for subsequent queries.
 
+## Run Query
+
+If you want to run a local query on the database you have created with the Pipeline Run above, enter the following command:
+
+```bash
+docker run --rm -it -v ./:/opt/op tderflinger/overpass-immu-docker /opt/op/binaries/osm3s_query --db-dir=/opt/op/db
+```
+
+You can then enter the Overpass Query in the terminal input field.
+
+## Pipeline Overview
+
+This diagram illustrates the process of loading OSM data and then querying it
+with Overpass.
+
+```mermaid
+flowchart TD
+    A[Fetch PBF File]
+    A --> B[Convert PBF to BZ2]
+    B --> C[Load BZ2 into Overpass Database]
+    C --> D[Add Area Rules]
+    D --> E[Run Queries Locally]
+```
+
 ## Build Docker Container
 
+If you want to create the Docker image locally, run:
+
+```bash
 docker build -t overpass-immu-docker .
+```
 
 ## References
 

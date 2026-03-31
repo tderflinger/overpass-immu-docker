@@ -39,7 +39,13 @@ If you want to run a local query on the database you have created with the Pipel
 docker run --rm -it -v ./:/opt/op tderflinger/overpass-immu-docker /opt/op/binaries/osm3s_query --db-dir=/opt/op/db
 ```
 
-You can then enter the Overpass Query in the terminal input field.
+You can then enter the Overpass query in the terminal input field.
+
+Alternatively, if you have the Overpass query in a text file you can do it like this:
+
+```bash
+cat query.txt | docker run --rm -i -v ./:/opt/op tderflinger/overpass-immu-docker /opt/op/binaries/osm3s_query --db-dir=/opt/op/db
+```
 
 ## Pipeline Overview
 
@@ -63,12 +69,35 @@ If you want to create the Docker image locally, run:
 docker build -t overpass-immu-docker .
 ```
 
+## HTTP API
+
+This project also includes the `overpass-httpd-immu` 
+Docker container which enables the querying of OSM data using a HTTP API. The image is based on Roland
+Olbricht's [docker-overpass](https://github.com/drolbr/docker-overpass) project. 
+
+You run it by linking the database volume that you
+created in the `overpass-immu-docker` pipeline with
+the HTTP-based query facilities of `overpass-httpd-immu`.
+
+Run it like this:
+
+```bash
+docker run -d -v {your db-folder}:/overpass/db -p 8080:80 tderflinger/overpass-httpd-immu:latest 
+```
+
+Then you can execute a query for example with curl like this:
+
+```bash
+curl -sS "http://localhost:8080/api/interpreter"   --data-urlencode "data@query.txt"
+```
+
 ## References
 
 - Overpass API: https://github.com/drolbr/Overpass-API
 
 - Setting up an Overpass API server - how hard can it be: https://www.openstreetmap.org/user/SomeoneElse/diary/408252
 
+- docker-overpass: https://github.com/drolbr/docker-overpass
 
 ## License
 

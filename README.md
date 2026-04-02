@@ -88,7 +88,7 @@ docker run -d -v {your db-folder}:/overpass/db -p 8080:80 tderflinger/overpass-h
 Then you can execute a query for example with curl like this:
 
 ```bash
-curl -sS "http://localhost:8080/api/interpreter"   --data-urlencode "data@query.txt"
+curl -sS "http://localhost:8080/api/interpreter" --data-urlencode "data@query.txt"
 ```
 
 ## References

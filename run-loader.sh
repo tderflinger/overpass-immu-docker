@@ -11,7 +11,7 @@ docker run --rm -v ./:/opt/op tderflinger/overpass-immu-docker  /usr/bin/osmium 
 echo "Testing integrity of .osm.bz2 file..."
 docker run --rm -v ./:/opt/op tderflinger/overpass-immu-docker  /usr/bin/bzip2 --test /opt/op/$1.osm.bz2
 echo "Importing data into database..."
-docker run --rm -v ./:/opt/op tderflinger/overpass-immu-docker sh -c "/usr/bin/bunzip2 < /opt/op/$1.osm.bz2 | /opt/op/bin/update_database --db-dir=/opt/op/db --meta=no"
+docker run --rm -v ./:/opt/op/data -v ./db:/opt/op/db tderflinger/overpass-immu-docker sh -c "/usr/bin/bunzip2 < /opt/op/data/$1.osm.bz2 | /opt/op/bin/update_database --db-dir=/opt/op/db --meta=no"
 echo "Import finished. Running update_database with rules/areas.osm3s to create areas..."
-docker run --rm -it -v ./:/opt/op tderflinger/overpass-immu-docker sh -c "/opt/op/bin/osm3s_query --db-dir=/opt/op/db --progress --rules </opt/op/rules/areas.osm3s"
+docker run --rm -it -v ./rules:/opt/op/rules -v ./db:/opt/op/db tderflinger/overpass-immu-docker sh -c "/opt/op/bin/osm3s_query --db-dir=/opt/op/db --progress --rules </opt/op/rules/areas.osm3s"
 echo "Done."

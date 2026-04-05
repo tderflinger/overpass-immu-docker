@@ -36,7 +36,7 @@ The script downloads the `.pbf` file from Geofabrik and executes the full ingest
 If you want to run a local query on the database you have created with the Pipeline Run above, enter the following command:
 
 ```bash
-docker run --rm -it -v ./:/opt/op tderflinger/overpass-immu-docker /opt/op/binaries/osm3s_query --db-dir=/opt/op/db
+docker run --rm -it -v ./db:/opt/op/db tderflinger/overpass-immu-docker /opt/op/bin/osm3s_query --db-dir=/opt/op/db
 ```
 
 You can then enter the Overpass query in the terminal input field.
@@ -44,7 +44,7 @@ You can then enter the Overpass query in the terminal input field.
 Alternatively, if you have the Overpass query in a text file you can do it like this:
 
 ```bash
-cat query.txt | docker run --rm -i -v ./:/opt/op tderflinger/overpass-immu-docker /opt/op/binaries/osm3s_query --db-dir=/opt/op/db
+cat query.txt | docker run --rm -i -v ./db:/opt/op/db tderflinger/overpass-immu-docker /opt/op/bin/osm3s_query --db-dir=/opt/op/db
 ```
 
 ## Pipeline Overview

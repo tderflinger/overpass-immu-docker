@@ -63,10 +63,10 @@ flowchart TD
 
 ## Build Docker Container
 
-If you want to create the Docker image locally, run:
+If you want to create the Docker image locally for both AMD64 and ARM64 ISAs, run:
 
 ```bash
-docker build -t overpass-immu-docker .
+docker buildx build --platform linux/amd64,linux/arm64 -t tderflinger/overpass-immu-docker . --load
 ```
 
 ## HTTP API

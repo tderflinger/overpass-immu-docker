@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-wget https://dev.overpass-api.de/releases/osm-3s_latest.tar.gz
+wget --no-check-certificate https://dev.overpass-api.de/releases/osm-3s_latest.tar.gz
 tar -xzf osm-3s_latest.tar.gz
 BUILD_DIR=$(tar -tzf osm-3s_latest.tar.gz | awk -F/ 'NR==1{first=$1} END{print first}')
 

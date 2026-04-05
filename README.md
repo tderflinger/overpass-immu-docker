@@ -103,4 +103,4 @@ curl -sS "http://localhost:8080/api/interpreter" --data-urlencode "data@query.tx
 
 This repository as such is licensed as MIT.
 
-It contains the following applications licensed as AGPL-3.0:  `binaries/osm3s_query` and `binaries/update_database` and `rules/areas.osm3s` from [Overpass API](https://github.com/drolbr/Overpass-API).
+It contains the following applications licensed as AGPL-3.0:  `bin/osm3s_query` and `bin/update_database` and `rules/areas.osm3s` from [Overpass API](https://github.com/drolbr/Overpass-API).

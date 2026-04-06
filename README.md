@@ -21,7 +21,7 @@ The primary use case is executing local Overpass queries against OSM data, witho
 
 ## Pipeline Run
 
-Run the shell script:
+First, clone the repository and then run the shell script:
 
 ```bash
 ./run-loader.sh <country> <region>

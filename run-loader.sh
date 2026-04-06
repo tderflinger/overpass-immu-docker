@@ -3,6 +3,11 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
+if [ "$(uname -s)" = "Linux" ] && ! command -v docker >/dev/null 2>&1; then
+  echo "Docker is not installed on this Linux system. Please install Docker and try again."
+  exit 1
+fi
+
 echo "Loading data of $1 into database..."
 mkdir db
 wget https://download.geofabrik.de/$2/$1-latest.osm.pbf

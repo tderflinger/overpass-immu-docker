@@ -27,7 +27,7 @@ Run the shell script:
 ./run-loader.sh <country> <region>
 ```
 
-The `<country>` and `<region>` parameters correspond to the region identifiers used on the Geofabrik download site.
+The `<country>` and `<region>` parameters correspond to the region identifiers used on the [Geofabrik](https://download.geofabrik.de/index.html) download site.
 
 The script downloads the `.pbf` file from Geofabrik and executes the full ingestion pipeline: converting the `.pbf` to a `.bz2` file and then loading it into the Overpass API database format. Upon successful completion, the `db` folder — mounted via Docker volumes — will contain the database files ready for Overpass queries.
 
@@ -90,6 +90,11 @@ Then you can execute a query for example with curl like this:
 ```bash
 curl -sS "http://localhost:8080/api/interpreter" --data-urlencode "data@query.txt"
 ```
+
+## Testing
+
+This container solution has been tested on an ARM64 (Raspberry Pi 5) and AMD64 system under Linux.
+Please file an issue if you have problems on your system.
 
 ## References
 

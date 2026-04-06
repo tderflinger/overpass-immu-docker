@@ -91,6 +91,8 @@ Then you can execute a query for example with curl like this:
 curl -sS "http://localhost:8080/api/interpreter" --data-urlencode "data@query.txt"
 ```
 
+The `query.txt` file contains the Overpass Query-
+
 ## Testing
 
 This container solution has been tested on an ARM64 (Raspberry Pi 5) and AMD64 system under Linux.

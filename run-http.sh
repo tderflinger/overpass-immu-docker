@@ -1,0 +1,1 @@
+docker run -d -v ./db:/overpass/db -p 8080:80 tderflinger/overpass-httpd-immu:latest

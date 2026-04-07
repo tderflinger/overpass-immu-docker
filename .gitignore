@@ -3,3 +3,5 @@ db/
 *.bz2
 monaco.json
 *.txt
+!test/monaco-latest.osm.pbf
+

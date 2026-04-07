@@ -8,9 +8,14 @@ if [ "$(uname -s)" = "Linux" ] && ! command -v docker >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "Loading data of $1 into database..."
-mkdir db
-wget https://download.geofabrik.de/$2/$1-latest.osm.pbf
+echo "Downloading data of $1 from Geofabrik..."
+mkdir -p db
+if [ ! -f "$1-latest.osm.pbf" ]; then
+  wget https://download.geofabrik.de/$2/$1-latest.osm.pbf
+else
+  echo "Skipping download, $1-latest.osm.pbf already exists."
+fi
+
 echo "Converting data into .osm.bz2 format..."
 docker run --rm -v ./:/opt/op tderflinger/overpass-immu-docker  /usr/bin/osmium cat /opt/op/$1-latest.osm.pbf -o /opt/op/$1.osm.bz2
 echo "Testing integrity of .osm.bz2 file..."

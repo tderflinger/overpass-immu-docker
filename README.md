@@ -9,7 +9,7 @@ OSM data is obtained as `.pbf` files and converted into the Overpass database fo
 
 OSM data and database files are managed on the host filesystem and exposed to the container via Docker volumes, keeping the container itself stateless and immutable — the origin of the name `overpass-immu-docker`.
 
-Note: this project does not include an OSM data update mechanism. For use cases requiring continuous data updates, an alternative solution is recommended.
+**Note:** this project does not include an OSM data update mechanism. For use cases requiring continuous data updates, an alternative solution is recommended.
 
 ## 🔖 Features
 

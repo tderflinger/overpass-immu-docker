@@ -124,6 +124,8 @@ Please file an issue if you have problems on your system.
 
 This repository as such is licensed as MIT.
 
+The `rules` folder contains files licensed as AGPL-3.0 from [Overpass API](https://github.com/drolbr/Overpass-API).
+
 The Docker images contain applications licensed as AGPL-3.0 from [Overpass API](https://github.com/drolbr/Overpass-API).
 
 The `test` folder contains OSM data licensed as [ODbL](https://opendatacommons.org/licenses/odbl/).

@@ -38,6 +38,12 @@ First, clone the repository and then run the shell script:
 
 The `<country>` and `<region>` parameters correspond to the region identifiers used on the [Geofabrik](https://download.geofabrik.de/index.html) download site.
 
+For larger countries with subregions, use:
+
+```bash
+./run-loader.sh <subregion> <country> <region>
+```
+
 The script downloads the `.pbf` file from Geofabrik and executes the full ingestion pipeline: converting the `.pbf` to a `.bz2` file and then loading it into the Overpass API database format. Upon successful completion, the `db` folder — mounted via Docker volumes — will contain the database files ready for Overpass queries.
 
 ## Run Query

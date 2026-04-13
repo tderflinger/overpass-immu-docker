@@ -124,7 +124,9 @@ Please file an issue if you have problems on your system.
 
 This repository as such is licensed as MIT.
 
-The `rules` folder contains files licensed as AGPL-3.0 from [Overpass API](https://github.com/drolbr/Overpass-API).
+This project contains files from [docker-overpass](https://github.com/drolbr/docker-overpass).
+
+The `rules` folder contains files licensed as AGPL-3.0 from [Overpass API](https://github.com/drolbr/Overpass-API). The `build.sh` 
 
 The Docker images contain applications licensed as AGPL-3.0 from [Overpass API](https://github.com/drolbr/Overpass-API).
 

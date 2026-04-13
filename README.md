@@ -46,6 +46,8 @@ For larger countries with subregions, use:
 
 The script downloads the `.pbf` file from Geofabrik and executes the full ingestion pipeline: converting the `.pbf` to a `.bz2` file and then loading it into the Overpass API database format. Upon successful completion, the `db` folder — mounted via Docker volumes — will contain the database files ready for Overpass queries.
 
+*Note:* Depending on download file size and computer speed, the whole process might take a while.
+
 ## Run Query
 
 If you want to run a local query on the database you have created with the Pipeline Run above, enter the following command:

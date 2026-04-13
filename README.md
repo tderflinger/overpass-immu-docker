@@ -1,6 +1,8 @@
 # overpass-immu-docker
+> Run Overpass API locally on Docker without relying on public Overpass servers.
 
-This is a specialized Docker container for querying OSM using Overpass.
+<a href="https://img.shields.io/badge/License-MIT-blue.svg"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" /></a>
+
 This project enables local querying of OpenStreetMap (OSM) data using the Overpass API, eliminating the need to rely on public Overpass API servers.
 
 OSM data is obtained as `.pbf` files and converted into the Overpass database format, after which queries can be executed entirely on the local machine.
@@ -8,6 +10,13 @@ OSM data is obtained as `.pbf` files and converted into the Overpass database fo
 OSM data and database files are managed on the host filesystem and exposed to the container via Docker volumes, keeping the container itself stateless and immutable — the origin of the name `overpass-immu-docker`.
 
 Note: this project does not include an OSM data update mechanism. For use cases requiring continuous data updates, an alternative solution is recommended.
+
+## 🔖 Features
+
+- All necessary Overpass binaries packaged in Docker image.
+- Docker images available for AMD64 and ARM64 architecture.
+- Overpass database files reside on host using Docker volumes.
+- Overpass HTTPD server as separate Docker image available.
 
 ## Architecture
 

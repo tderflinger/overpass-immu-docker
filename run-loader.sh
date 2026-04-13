@@ -1,5 +1,9 @@
-if [ $# -eq 0 ]; then
+if [ $# -ne 2 ] && [ $# -ne 3 ]; then
   echo "Usage: run-loader.sh <country> <region>"
+  echo "Optional: run-loader.sh <subregion> <country> <region>"
+  echo ""
+  echo "Names for <country>, <subregion>, and <region> should match the ones used in Geofabrik URLs. For example, for Germany, you can use 'germany' as <country>, 'bayern' as <subregion>, and 'europe' as <region>."
+  echo "Check at Geofabrik: https://download.geofabrik.de for the correct names to use."
   exit 1
 fi
 
@@ -10,8 +14,15 @@ fi
 
 echo "Downloading data of $1 from Geofabrik..."
 mkdir -p db
+
+if [ $# -eq 3 ]; then
+  download_url="https://download.geofabrik.de/$3/$2/$1-latest.osm.pbf"
+else
+  download_url="https://download.geofabrik.de/$2/$1-latest.osm.pbf"
+fi
+
 if [ ! -f "$1-latest.osm.pbf" ]; then
-  wget https://download.geofabrik.de/$2/$1-latest.osm.pbf
+  wget "$download_url"
 else
   echo "Skipping download, $1-latest.osm.pbf already exists."
 fi

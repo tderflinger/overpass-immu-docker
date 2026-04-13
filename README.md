@@ -96,19 +96,20 @@ You run it by linking the database volume that you
 created in the `overpass-immu-docker` pipeline with
 the HTTP-based query facilities of `overpass-httpd-immu`.
 
-Run it like this:
+Run the provided start script from the local directory that contains the `db` folder from
+the pipeline script:
 
 ```bash
-docker run -d -v {your db-folder}:/overpass/db -p 8080:80 tderflinger/overpass-httpd-immu:latest 
+./run-httpd.sh
 ```
 
-Then you can execute a query for example with curl like this:
+Then you can execute a query for example with curl, like this:
 
 ```bash
 curl -sS "http://localhost:8080/api/interpreter" --data-urlencode "data@query.txt"
 ```
 
-The `query.txt` file contains the Overpass Query-
+The `query.txt` file contains the Overpass Query.
 
 ## Testing
 

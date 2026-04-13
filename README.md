@@ -92,10 +92,6 @@ This project also includes the `overpass-httpd-immu`
 Docker container which enables the querying of OSM data using a HTTP API. The image is based on Roland
 Olbricht's [docker-overpass](https://github.com/drolbr/docker-overpass) project. 
 
-You run it by linking the database volume that you
-created in the `overpass-immu-docker` pipeline with
-the HTTP-based query facilities of `overpass-httpd-immu`.
-
 Run the provided start script from the local directory that contains the `db` folder from
 the pipeline script:
 

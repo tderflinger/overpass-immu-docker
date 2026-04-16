@@ -127,7 +127,7 @@ Veuillez signaler un problème si vous rencontrez des problèmes sur votre syst�
 
 - API Overpass : https://github.com/drolbr/Overpass-API
 
-- Mise en place d'un serveur API Overpass - est-ce si difficile : 
+-  Setting up an Overpass API server - how hard can it be: 
 https://www.openstreetmap.org/user/SomeoneElse/diary/408252
 
 - docker-overpass : https://github.com/drolbr/docker-overpass

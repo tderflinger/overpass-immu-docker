@@ -5,7 +5,7 @@
 
 [Français](./README.fr.md)
 
-<iframe width="560" height="315" src="https://youtu.be/w6zz6BZPMak" title="Run Overpass Locally" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<img src="https://img.youtube.com/vi/w6zz6BZPMak/hqdefault.jpg" alt="Watch on YouTube">
 
 This project enables local querying of OpenStreetMap (OSM) data using the Overpass API, eliminating the need to rely on public Overpass API servers.
 

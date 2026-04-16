@@ -5,7 +5,9 @@
 
 [Français](./README.fr.md)
 
+<a href="https://youtu.be/w6zz6BZPMak">
 <img src="https://img.youtube.com/vi/w6zz6BZPMak/hqdefault.jpg" alt="Watch on YouTube">
+</a>
 
 This project enables local querying of OpenStreetMap (OSM) data using the Overpass API, eliminating the need to rely on public Overpass API servers.
 

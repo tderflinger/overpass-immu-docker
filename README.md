@@ -3,7 +3,7 @@
 
 <a href="https://img.shields.io/badge/License-MIT-blue.svg"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" /></a>
 
-[Français](./README.fr.md)
+[Français](./README.fr.md) [Español](./README.es.md)
 
 <a href="https://youtu.be/w6zz6BZPMak">
 <img src="https://img.youtube.com/vi/w6zz6BZPMak/hqdefault.jpg" alt="Watch on YouTube">

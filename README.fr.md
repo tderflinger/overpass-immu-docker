@@ -4,6 +4,8 @@
 <a href="https://img.shields.io/badge/License-MIT-blue.svg"><img 
 src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" /></a>
 
+[English](./README.md) [Español](./README.es.md)
+
 Ce projet permet de requêter des données OpenStreetMap (OSM) localement en utilisant l'API Overpass, éliminant ainsi le besoin de dépendre des serveurs publics de l'API Overpass.
 
 Les données OSM sont obtenues sous forme de fichiers `.pbf` et converties au format de base de données Overpass, 

@@ -118,6 +118,16 @@ The `query.txt` file contains the Overpass Query.
 This container solution has been tested on an ARM64 (Raspberry Pi 5) and AMD64 system under Linux.
 Please file an issue if you have problems on your system.
 
+## FAQs
+
+**But doesn't it take terabytes of data to use Overpass with OSM?**
+
+Yes, but only if you need to use the whole world data of OpenStreetMap. Usually, one only
+needs to work with a subset of all the data. For example, only one country. And one
+country is usually fine on today's consumer grade hardware. The space needed is usually around 
+100s of GB instead of TB. So the hard disk space depends on the data you want to analyze and 
+that depends on your use case.
+
 ## References
 
 - Overpass API: https://github.com/drolbr/Overpass-API

@@ -128,6 +128,12 @@ country is usually fine on today's consumer grade hardware. The space needed is 
 100s of GB instead of TB. So the hard disk space depends on the data you want to analyze and 
 that depends on your use case.
 
+## Roadmap
+
+- Make OSMNx work with overpass-immu-docker
+- Use GitHub Actions to build Docker container
+- Integrate update mechanism
+
 ## References
 
 - Overpass API: https://github.com/drolbr/Overpass-API

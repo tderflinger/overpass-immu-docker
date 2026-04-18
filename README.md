@@ -134,6 +134,10 @@ that depends on your use case.
 - Use GitHub Actions to build Docker container
 - Integrate update mechanism
 
+## Similar Projects
+
+Also check out the great [Overpass-API](https://github.com/wiktorn/Overpass-API) project from Wiktor.
+
 ## References
 
 - Overpass API: https://github.com/drolbr/Overpass-API
